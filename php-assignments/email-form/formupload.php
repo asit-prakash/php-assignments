@@ -4,8 +4,10 @@
 
     $fullname_display=$_SESSION['fullname'];
     $image_display=$_SESSION['image_path'];
-    $marks_split_display=$_SESSION['$marks_split'];
-	$marks_count_display=$_SESSION['$marks_count'];
+    $marks_split_display=$_SESSION['marks_split'];
+    $marks_count_display=$_SESSION['marks_count'];
+    $contact_display=$_SESSION['contact'];
+    $email_display=$_SESSION['email_address'];
 
     //file download to user
     header("Content-type: application/vnd.ms-word");
@@ -26,9 +28,11 @@
 			echo "<td>".$marks_split_display[$i++]."</td>";
 			echo "</tr>";
 		}
-	echo "</table>"."</br>";
+    echo "</table>";
+    echo "<br>" . "Contact: " . $contact_display . "<br>";
+    echo "<br>" . "Email: " . $email_display . "<br>";
 
     //file upload to sever
     $content = ob_get_contents();
-    file_put_contents('/var/www/html/php-assignments/marks-form/uploads/form-response.doc',$content);
+    file_put_contents('/var/www/html/php-assignments/email-form/uploads/form-response.doc',$content);
 ?>
