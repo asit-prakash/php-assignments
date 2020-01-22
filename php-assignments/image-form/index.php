@@ -70,7 +70,7 @@
 		<input type="submit" name="submit" value="Submit">
 		</form>
 
-		<h2>Welcome</h2>
+		<h2>Welcome
 		<?php
             $fullname=$firstname." ".$lastname;
 			if ($firstname_check && $lastname_check)
@@ -145,6 +145,6 @@
             }
         ?>
 
-        
+        </h2>
 	</body>
 </html>

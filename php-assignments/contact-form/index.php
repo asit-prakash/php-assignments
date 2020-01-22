@@ -3,7 +3,7 @@
 ?>
 <html>
 	<head>
-		<title>MARKS DISPLAY</title>
+		<title>CONTACT DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="contact.css">
 		<script type="text/javascript" src="contact.js"></script>
 	</head>
@@ -201,7 +201,7 @@
 
 				if($contactok=1)
 				{
-					echo $contact . "<br>";
+					echo "CONTACT: " . $contact . "<br>";
 					$_SESSION['contact']=$contact;
 				}
 			}
