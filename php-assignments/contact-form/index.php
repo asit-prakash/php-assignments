@@ -5,7 +5,7 @@
 	<head>
 		<title>CONTACT DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="contact.css">
-		<script type="text/javascript" src="contact.js"></script>
+		
 	</head>
 	<body>
 		<?php
@@ -214,5 +214,6 @@
         ?>
 
         </h2>
+		<script type="text/javascript" src="contact.js"></script>
 	</body>
 </html>

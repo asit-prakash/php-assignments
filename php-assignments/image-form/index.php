@@ -5,7 +5,7 @@
 	<head>
 		<title>IMAGE DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="image.css">
-		<script type="text/javascript" src="image.js"></script>
+		
 	</head>
 	<body>
 		<?php
@@ -146,5 +146,6 @@
         ?>
 
         </h2>
+		<script type="text/javascript" src="image.js"></script>
 	</body>
 </html>

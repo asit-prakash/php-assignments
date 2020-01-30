@@ -11,7 +11,7 @@
 	<head>
 		<title>EMAIL VALIDATION</title>
 		<link rel="stylesheet" type="text/css" href="assignment.css">
-		<script type="text/javascript" src="assignment.js"></script>
+		
 	</head>
 	<body>
 		<?php
@@ -294,7 +294,7 @@
 				    	echo("$email_address is a valid email address and validated by server" . "<br>");
 					} 
 
-					if(!$email_address == "")
+					/*if(!$email_address == "")
 					{
 						// set API Access Key
 						$access_key = '2894e27f00ecd6aedb7e433806b3894e';
@@ -317,7 +317,7 @@
 						{
 							echo "Email is not valid(api)";
 						}
-					}
+					}*/
                     
 				}
 		?>
@@ -336,5 +336,6 @@
         <br>
         <a href="assignment4.php">ASSIGNMENT4</a>
         </h2>
+		<script type="text/javascript" src="assignment.js"></script>
 	</body>
 </html>

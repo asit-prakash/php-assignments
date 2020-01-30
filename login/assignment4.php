@@ -11,7 +11,7 @@
 	<head>
 		<title>CONTACT DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="assignment.css">
-		<script type="text/javascript" src="assignment.js"></script>
+		
 	</head>
 	<body>
 		<?php
@@ -275,5 +275,6 @@
         <a href="assignment5.php">ASSIGNMENT5</a>
 
         </h2>
+		<script type="text/javascript" src="assignment.js"></script>
 	</body>
 </html>

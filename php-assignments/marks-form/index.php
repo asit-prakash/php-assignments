@@ -5,7 +5,7 @@
 	<head>
 		<title>MARKS DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="marks.css">
-		<script type="text/javascript" src="marks.js"></script>
+		
 	</head>
 	<body>
 		<?php
@@ -177,5 +177,6 @@
         ?>
 
         </h2>
+		<script type="text/javascript" src="marks.js"></script>
 	</body>
 </html>

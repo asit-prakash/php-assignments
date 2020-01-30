@@ -5,7 +5,7 @@
 	<head>
 		<title>FULLNAME DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="name.css">
-		<script type="text/javascript" src="name.js"></script>
+	
 	</head>
 
 	<body>
@@ -59,8 +59,7 @@
             disabled="disabled" 
             type = "text" 
             name="fullname" 
-            id="fullname" 
-            value="">
+            id="fullname">
         <br>
 		<input type="submit" name="submit" value="Submit">
 		</form>
@@ -84,6 +83,6 @@
 		</h2>
 		
 	</body>
-	
+	<script type="text/javascript" src="name.js"></script>
 	
 </html>
