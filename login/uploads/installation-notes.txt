@@ -1,0 +1,5 @@
+curl extension of php for mailboxlayer
+permisssion of chmod -R 777 /var/www/html for file uploads
+
+sudo chown www-data:www-data /var/www/html/php-assignments/contact-form/uploads    //ownership
+sudo chmod 755 /var/www/html/php-assignments/email-form/uploads      //permission for file upload

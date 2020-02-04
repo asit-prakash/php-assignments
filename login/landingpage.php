@@ -1,12 +1,4 @@
-<?php
-    session_start();
-    $username=$_SESSION['username'];
-    $password=$_SESSION['password'];
-    if($username!='admin' && $password!='admin')
-        {
-            header("Location:index.php");
-        }
-?>
+<?php include 'session_info.php';?>
 <html>
     <head>
         <title>PHP ASSIGNMENTS</title>
@@ -32,45 +24,6 @@
                 id="logout"
                 value="LOGOUT">
         </form>
-        <?php
-            if($_SERVER["REQUEST_METHOD"] == "POST")
-            {
-                if(isset($_POST['logout']))
-                    {
-                    session_destroy();
-                    header("Location:index.php");
-                    } 
-                    if(isset($_GET["q"]))
-        {
-            $get_path = $_GET["q"];
-            if($get_path == '1')
-            {
-                header("location:assignment1.php");
-                exit;
-            }
-            if($get_path == '2')
-            {
-                header("location:assignment2.php");
-                exit;
-            }
-            if($get_path == '3')
-            {
-                header("location:assignment3.php");
-                exit;
-            }
-            if($get_path == '4')
-            {
-                header("location:assignment_4.php");
-                exit;
-            }
-            if($get_path == '5')
-            {
-                header("location:assignment5.php");
-                exit;
-            }
-        }
-            }
-            
-        ?>
+        <?php include 'get_path.php';?>
     </body>
 </html>

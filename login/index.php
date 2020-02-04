@@ -15,34 +15,63 @@
                 type="password"
                 placeholder="Enter Password"
                 name="password"
-                id="password"
-                required>
+                id="password">
             <br><br>
             <input
                 type="submit"
-                name="SUBMIT"
-                id="submit"
-                value="SUBMIT">
-        </form>
+                name="login"
+                id="login"
+                value="Login">
+            <br><br>
+            <input
+                type="submit"
+                name="forget"
+                id="forget"
+                value="Forget Password">
 
-        <?php
-            if($_SERVER["REQUEST_METHOD"] == "POST")
-            {
-                $username=$_POST['username'];
-                $password=$_POST['password'];
-                if($username=='admin' && $password=='admin')
-                    {
-                        session_start();
-                        $_SESSION['username']=$username;
-                        $_SESSION['password']=$password;
-                        header("Location:landingpage.php");
-                    }
-                else
-                    {
-                        echo "user id or password invalid";
-                    }
-            }
-        ?>
+        </form>
     </body>
 </html>
+<?php
+    include 'mysql.php';
+    session_start();
+    if(isset($_SESSION['username']) && isset($_SESSION['password']))
+    {
+        header("Location:landingpage.php");
+    }
+    elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login']))
+    {
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        $auth="SELECT * FROM SECRET_QA WHERE USERNAME='$username' AND PASSWORD='$password'";
+        $query=mysqli_query($conn, $auth);
+        $count=mysqli_num_rows($query);
+        if($count==1)
+        {
+            $_SESSION['username']=$username;
+            $_SESSION['password']=$password;
+            header("Location:landingpage.php");
+        }
+        else
+        {
+            echo "user id or password invalid";
+        }
+    }
+    elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['forget']))
+    {
+        $username=$_POST['username'];
+        $auth="SELECT * FROM SECRET_QA WHERE USERNAME='$username'";
+        $query=mysqli_query($conn, $auth);
+        $count=mysqli_num_rows($query);
+        if($count==1)
+        {
+            $_SESSION['username']=$username;
+            header("Location:forget_pass.php");
+        }
+        else
+        {
+            echo "user id invalid";
+        }
+    }
+?>
 

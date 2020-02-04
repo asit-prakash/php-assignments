@@ -1,64 +1,27 @@
-<?php
-	session_start();
-    $username=$_SESSION['username'];
-    $password=$_SESSION['password'];
-    if($username!='admin' && $password!='admin')
-        {
-            header("Location:index.php");
-        }
-?>	
+<?php include 'session_info.php';?>
 <html>
 	<head>
 		<title>FULLNAME DISPLAY</title>
 		<link rel="stylesheet" type="text/css" href="assignment.css">
-		
 	</head>
-
 	<body>
-		<?php
-		$firstnameErr = $lastnameErr = "";//name-input-Error variable
-		$firstname = $lastname = $fullname = "";//name-input variable
-		$firstname_check = $lastname_check =""; //name-input-patter-check variable
-        
-		if ($_SERVER["REQUEST_METHOD"] == "POST")
-		{
-            $firstname = test_input($_POST["firstname"]);
-            $firstname_check=preg_match("/^[a-zA-Z]+$/",$firstname);
-	    	// check if name only contains letters
-	    	if (!$firstname_check)
-	    	{
-	    		$firstnameErr = "Only letters and white space allowed";
-   			}
-               $lastname = test_input($_POST["lastname"]);
-               $lastname_check=preg_match("/^[a-zA-Z]+$/",$lastname);
-	    	if (!$lastname_check)
-	    	{
-	    		$lastnameErr = "Only letters and white space allowed";
-   			}
-		}
-		function test_input($data) 
-		{
-		  $data = trim($data);//remove extra spaces
-		  $data = stripslashes($data);//remove slashes
-		  $data = htmlspecialchars($data);//convert special characters into html entities
-		  return $data;//return pure data
-		}
-		?>
-
+    <?php include 'assign1_validation.php';?>
 		<form method="post" id="form1" action="">  
 		First Name: 
         <input 
             type="text" 
             name="firstname" 
-            id="firstname">
+            id="firstname"
+            placeholder="Enter Firstname">
 		<span class="error">* <?php echo $firstnameErr;?></span>
   		<br><br>
 		Last Name: 
         <input 
             type="text" 
             name="lastname" 
-			id="lastname">
-		<span class="error">* <?php echo $firstnameErr;?></span>
+			id="lastname"
+            placeholder="Enter Lastname">
+		<span class="error">* <?php echo $lastnameErr;?></span>
   		<br><br>
 		Full Name: 
         <input 
@@ -78,62 +41,14 @@
             id="logout"
             value="LOGOUT">
 		</form>
-		<?php
-            if($_SERVER["REQUEST_METHOD"] == "POST")
-            {
-                if(isset($_POST['logout']))
-                {
-                    session_destroy();
-                    header("Location:index.php");
-                } 
-			}
-			if(isset($_GET["q"]))
-        {
-            $get_path = $_GET["q"];
-            if($get_path == '1')
-            {
-                header("location:assignment1.php");
-                exit;
-            }
-            if($get_path == '2')
-            {
-                header("location:assignment2.php");
-                exit;
-            }
-            if($get_path == '3')
-            {
-                header("location:assignment3.php");
-                exit;
-            }
-            if($get_path == '4')
-            {
-                header("location:assignment4.php");
-                exit;
-            }
-            if($get_path == '5')
-            {
-                header("location:assignment5.php");
-                exit;
-            }
-        }
-        ?>
-
+        <?php include 'get_path.php';?>
 		<h2>Welcome
 		<?php
-			$fullname=$firstname." ".$lastname;
-			//$fullname_check=preg_match("/^[a-zA-Z ]+$/",$fullname);
-			if ($firstname_check && $lastname_check)
-                {
-                    echo $fullname ."<br>";
-                    $_SESSION['fullname']=$fullname;
-                }
-   		?>
-        <?php
-            if($_SERVER["REQUEST_METHOD"] == "POST" && $firstname_check && $lastname_check)
+            if($_SERVER["REQUEST_METHOD"] == "POST" && $firstnameErr == "" && $lastnameErr == "")
             {
-                echo "<a href='assignment1_upload.php'>Download Response</a>"."<br>";
+                include 'assign1_display.php';
             }
-		?>
+        ?>
 		<br>
         <a href="assignment2.php">ASSIGNMENT2</a>
         <br>
@@ -145,6 +60,5 @@
 		</h2>
 		<script type="text/javascript" src="assignment.js"></script>
 	</body>
-	
-	
 </html>
+
