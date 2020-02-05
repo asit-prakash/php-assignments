@@ -31,9 +31,10 @@
         </form>
         <?php
             session_start();
-            /*if(isset($_SESSION['username'])==false)
+            /*$_SESSION['last_action'] = time();
+            if($_SESSION['last_action'] < time() - 20 )
             {
-              header("Location:index.php");
+                header("Location:index.php");
             }*/
             if(isset($_SESSION['username']) && isset($_SESSION['password']))
             {

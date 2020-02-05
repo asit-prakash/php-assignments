@@ -8,8 +8,19 @@
     <body>
         <?php
             session_start();
-            /*if(isset($_SESSION['username'])===false)
+            /*if(isset($_SESSION['last_action']))
             {
+                $diff=time()- $_SESSION['last_action'];
+                echo $diff."\n";
+                echo time()."\n";
+                echo $_SESSION['last_action']."\n";
+                if($diff>20)
+                {   
+                    unset($_SESSION['last_action']);
+                    header("Location:index.php");
+                }
+            }
+            else{
                 header("Location:index.php");
             }*/
             if(isset($_SESSION['username']) && isset($_SESSION['password']))

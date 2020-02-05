@@ -35,6 +35,7 @@
 <?php
     include 'mysql.php';
     session_start();
+    $_SESSION['last_action'] = time();
     if(isset($_SESSION['username']) && isset($_SESSION['password']))
     {
         header("Location:landingpage.php");
